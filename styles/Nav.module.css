@@ -1,6 +1,6 @@
 .mainnavbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
    align-items: center;
 }
 
@@ -10,8 +10,13 @@
 }
 
 .link {
+    font-family: 'Antonio', sans-serif;
     padding: 5%;
+    color: red;
 }
 .link:hover {
     color: coral;
+}
+.logo {
+    width: 200px;
 }

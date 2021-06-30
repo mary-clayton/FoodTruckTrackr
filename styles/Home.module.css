@@ -9,14 +9,58 @@
 .head {
   color: white;
 }
-.headbutton {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.button {
+    font-family: 'Antonio', sans-serif;
     background-color: red;
     color: white;
     border: none;
     width: 150px;
     height: 50px;
     font-size: 15px;
+    cursor: pointer;
     
+}
+
+.headmission {
+  color: red;
+}
+
+.mission {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 0;
+}
+
+.para1 {
+  width: 50%;
+  line-height:250%;
+}
+
+/* SIGN IN SECTION */
+.card {
+  background-image: url(../public/bglogin.png);
+  background-size: cover;
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form1 {
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 50%;
+  padding: 5%;
+  font-size: 18px;
+}
+
+.inputaccess {
+  width: 150%;
+  height: 10%;
 }
