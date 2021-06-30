@@ -1,10 +1,11 @@
 import Navbar from '../comps/navbar'
 import styles from '../styles/Home.module.css'
+import Image from 'next/image'
 const About = () => {
     return ( 
         <div>
             <Navbar/>
-            <img src="./aboutheader.png"/>
+            <img src='/aboutheader.png'/>
             <div className={styles.mission}>
                 <h1 className={styles.headmission}>Our Mission</h1>
                 <p className={styles.para1}>Every true "foodie" worth their salt knows that some of the best food in any city can be found on food trucks - but 
