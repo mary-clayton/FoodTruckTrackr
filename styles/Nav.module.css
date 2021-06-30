@@ -1,0 +1,17 @@
+.mainnavbar {
+    display: flex;
+    justify-content: space-around;
+   align-items: center;
+}
+
+.navbar {
+    display: flex;
+    width: 25%;
+}
+
+.link {
+    padding: 5%;
+}
+.link:hover {
+    color: coral;
+}
