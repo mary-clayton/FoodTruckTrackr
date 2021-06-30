@@ -1,7 +1,7 @@
-import Navbar from '../comps/navbar'
-import styles from '../styles/Home.module.css'
-import Image from 'next/image'
-import abouthead from '../public/aboutheader.png'
+import Navbar from '../comps/navbar';
+import styles from '../styles/Home.module.css';
+import Image from 'next/image';
+import abouthead from '../public/aboutheader.png';
 const About = () => {
     return ( 
         <div>
