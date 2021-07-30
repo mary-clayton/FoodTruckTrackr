@@ -7,7 +7,7 @@ const { user, logout } = useUser();
 
 return (
   <div>
-    <div>Dashboard</div>
+    <div>Private</div>
     {
       user?.email &&
       <div>
