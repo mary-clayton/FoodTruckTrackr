@@ -1,6 +1,18 @@
+import React, { useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Navbar from '../comps/navbar'
-const Register = () => {
+import firebase from 'firebase/app'
+import 'firebase/auth'
+
+  const Register = ({ email, password }) => {
+     firebase.auth().createUserWithEmailAndPassword(email, password)
+     .then((response) => {
+      console.log(response)
+     })
+     .catch((error) => {
+      return { error };
+     })
+
     return ( 
         <div className={styles.login}>
         <Navbar/>
@@ -8,13 +20,18 @@ const Register = () => {
 
             <form className={styles.form1}>
             <h1>Register</h1>
-                <label htmlFor="username">Username:</label>
-                <input className={styles.inputaccess} type="text"></input>
+                <label htmlFor="email">Email:</label>
+                <input className={styles.inputaccess} type="email"
+                
+                ></input>
                 <br/>
                 <label htmlFor="password">password</label>
-                <input className={styles.inputaccess} type="password"></input>
+                <input className={styles.inputaccess} type="password"
+                
+                ></input>
                 <br/>
                 <button className={styles.button}>Register</button>
+                
             </form>
         </div>
     </div>
