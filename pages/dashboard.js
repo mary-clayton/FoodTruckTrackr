@@ -12,7 +12,7 @@ return (
       user?.email &&
       <div>
         <div>Email: {user.email}</div>
-        <button class={db.logout} onClick={() => logout()}>Logout</button>
+        <button className={db.logout} onClick={() => logout()}>Logout</button>
       </div> 
     }
   </div>
