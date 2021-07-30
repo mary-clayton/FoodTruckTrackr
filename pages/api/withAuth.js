@@ -16,11 +16,6 @@ const withAuth = Component => props => {
     });
   }, []);
 
-  return (
-    <div>
-      <Component {...props} />
-    </div>
-  )
 };
 
 export default withAuth;
