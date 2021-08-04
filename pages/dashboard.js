@@ -1,22 +1,18 @@
-import withAuth from "./api/withAuth";
+// import withAuth from "./_app";
 import { useUser } from "./api/useUser";
 import db from '../styles/Dashboard.module.css'
 
 const Dashboard = () => {
-const { user, logout } = useUser();
 
 return (
   <div>
     <div>Private</div>
-    {
-      user?.email &&
-      <div>
-        <div>Email: {user.email}</div>
-        <button className={db.logout} onClick={() => logout()}>Logout</button>
-      </div> 
-    }
+        
+        <button className={db.logout}>Logout</button>
+      
+    
   </div>
 )
 }
  
-export default withAuth(Dashboard);
+export default Dashboard;

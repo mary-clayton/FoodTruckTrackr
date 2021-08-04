@@ -58,6 +58,7 @@ import 'firebase/auth';
 import initFirebase from './api/config';
 import { setUserCookie } from './api/userCookie';
 import { mapUserData } from './api/useUser';
+import Navbar from '../comps/navbar'
 
 initFirebase();
 const firebaseAuthConfig = ({ signInSuccessUrl }) => ({
@@ -83,6 +84,7 @@ const FirebaseAuth = () => {
   const signInSuccessUrl = "/dashboard"
   return (
     <div>
+      <Navbar/>
       <StyledFirebaseAuth
         uiConfig={firebaseAuthConfig({ signInSuccessUrl })}
         firebaseAuth={firebase.auth()}

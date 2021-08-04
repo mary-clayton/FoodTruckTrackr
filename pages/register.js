@@ -4,14 +4,7 @@ import Navbar from '../comps/navbar'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
-  const Register = ({ email, password }) => {
-     firebase.auth().createUserWithEmailAndPassword(email, password)
-     .then((response) => {
-      console.log(response)
-     })
-     .catch((error) => {
-      return { error };
-     })
+  const Register = () => {
 
     return ( 
         <div className={styles.login}>
