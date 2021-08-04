@@ -17,7 +17,7 @@ const firebaseAuthConfig = ({ signInSuccessUrl }) => ({
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
   ],
   signInSuccessUrl,
-  credentialHelper: 'none',
+  credentialHelper:firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
   callbacks: {
     signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
       const userData = await mapUserData(user);
