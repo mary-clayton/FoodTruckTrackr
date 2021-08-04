@@ -1,14 +1,13 @@
-// import withAuth from "./_app";
-import { useUser } from "./api/useUser";
+// import { useUser } from "./api/useUser";
 import db from '../styles/Dashboard.module.css'
+import Navbar2 from '../comps/navbar2'
 
 const Dashboard = () => {
 
 return (
   <div>
+    <Navbar2/>
     <div>Private</div>
-        
-        <button className={db.logout}>Logout</button>
       
     
   </div>
