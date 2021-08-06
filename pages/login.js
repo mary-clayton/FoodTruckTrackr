@@ -11,6 +11,8 @@ class Login extends React.Component {
     const loginUser = () => {
       firebase.auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(this.setState({IsLoggedIn: true}))
+      .then(console.log("Logged In!"))
       .then(this.props.router.push("/dashboard"))
       .catch(error => console.log(error))
     }

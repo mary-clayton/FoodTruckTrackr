@@ -1,4 +1,4 @@
-import Firebase from "firebase";
+import firebase from "firebase";
 import React from "react";
 
 class Signup extends React.Component {
@@ -8,7 +8,7 @@ class Signup extends React.Component {
         password: ''
     }
     signUpUser = () => {
-        Firebase.auth()
+        firebase.auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(() => this.props.router.push('/dashboard'))
         .catch(error => console.log(error))
