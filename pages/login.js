@@ -3,15 +3,15 @@ import Firebase from 'Firebase'
 
 class Login extends React.Component {
   state = {
-    email: '',
-    password: ''
+    email: "",
+    password: ""
   }
 
   render() {
     const loginUser = () => {
       Firebase.auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(this.props.router.push('/dashboard'))
+      .then(this.props.router.push("/dashboard"))
       .catch(error => console.log(error))
     }
   
@@ -33,7 +33,7 @@ class Login extends React.Component {
           secureTextEntry={true}
           />
           <button onClick={loginUser}>Login</button>
-          <p>Don't have an account yet? <a href="/register">Sign Up</a></p>
+          <p>Dont have an account yet? <a href="/register">Sign Up</a></p>
       </div>
       </div>
    );
