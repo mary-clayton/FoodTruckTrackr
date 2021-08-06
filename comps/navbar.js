@@ -1,29 +1,15 @@
 import Link from 'next/link';
 import styles from '../styles/Nav.module.css'
-import firebase from 'firebase'
 import React from 'react'
-import { withRouter } from 'next/router';
+
 
 class NavBar extends React.Component {
-    constructor(props) {
-        super(props)
-    
-    this.state = {
-        user: firebase.auth().currentUser
+    state = {
     } 
-}
-
+    
     render() {
-        const signOutUser = () => {
-            firebase.auth()
-            .signOut()
-            .then(this.props.router.push("/"))
-            .catch(function(error) {
-                // An error happened.
-                console.log(error.message)
-                  });
-                
-        }
+             
+        
     return ( 
         <div className={styles.mainnavbar}>
              <div className={styles.logo}>
@@ -33,7 +19,7 @@ class NavBar extends React.Component {
             </div>
         <nav className= {styles.navbar}>
             <Link href="/dashboard">
-                 {this.state.user && <a className={styles.link}>Dashboard</a>}
+                 {this.state.user ? <a className={styles.link}>Dashboard</a>: ""}
                 </Link>
             <Link href="/about">
                 <a className={styles.link}>About</a>
@@ -47,11 +33,11 @@ class NavBar extends React.Component {
             <Link href="/contact">
                 <a className={styles.link}>Contact</a>
                 </Link>
-            {this.state.user && <a className={styles.link} onClick={signOutUser()}>Logout</a> }
+            {this.state.user && <a className={styles.link}>Logout</a> }
         </nav>
         </div>
     );
 }
 }
 
-export default withRouter(NavBar);
+export default NavBar;

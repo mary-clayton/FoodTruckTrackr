@@ -1,5 +1,5 @@
 import React from 'react'
-import firebase from 'firebase'
+import { withRouter } from 'next/router'
 
 class Login extends React.Component {
   state = {
@@ -9,14 +9,9 @@ class Login extends React.Component {
 
   render() {
     const loginUser = () => {
-      firebase.auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(this.setState({IsLoggedIn: true}))
-      .then(console.log("Logged In!"))
-      .then(this.props.router.push("/dashboard"))
-      .catch(error => console.log(error))
+      
     }
-  
+
   return ( 
     <div>
       <div>
@@ -42,4 +37,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

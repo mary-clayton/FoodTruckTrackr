@@ -8,10 +8,7 @@ class Signup extends React.Component {
         password: ''
     }
     signUpUser = () => {
-        firebase.auth()
-        .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => this.props.router.push('/dashboard'))
-        .catch(error => console.log(error))
+        
         }
     render() {
     return ( 
