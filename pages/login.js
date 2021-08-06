@@ -34,7 +34,7 @@ class Login extends React.Component {
           secureTextEntry={true}
           />
           <button onClick={loginUser}>Login</button>
-          <p>Don't have an account yet? <a href="">Sign Up</a></p>
+          <p>Don't have an account yet? <a href="/register">Sign Up</a></p>
       </div>
       </div>
    );
