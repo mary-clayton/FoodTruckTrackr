@@ -1,5 +1,5 @@
 import React from 'react'
-import Firebase from 'Firebase'
+import firebase from 'firebase'
 
 class Login extends React.Component {
   state = {
@@ -9,7 +9,7 @@ class Login extends React.Component {
 
   render() {
     const loginUser = () => {
-      Firebase.auth()
+      firebase.auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(this.props.router.push("/dashboard"))
       .catch(error => console.log(error))
