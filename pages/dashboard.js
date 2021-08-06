@@ -2,12 +2,13 @@ import db from '../styles/Dashboard.module.css'
 import { useContext } from 'react'
 import AuthContext from '../stores/authContext'
 
-const Dashboard = () => {
-  const {user} = useContext(AuthContext)
+
+const Dashboard = (props) => {
+  const {user, logout} = useContext(AuthContext)
   console.log(user)
 return (
   <div>
-  <h2> Welcome {user.user_metadata.full_name}</h2>
+  {user ? <h2>Welcome {user.user_metadata.full_name}</h2>: logout}
   </div>
 )
 }
