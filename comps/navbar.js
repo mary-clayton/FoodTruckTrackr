@@ -1,14 +1,12 @@
-import Link from 'next/link';
+import Link from 'next/link'
+import Image from 'next/image'
 import styles from '../styles/Nav.module.css'
-import React from 'react'
+import { useContext } from 'react'
+import  AuthContext  from '../stores/authContext';
 
 
-class NavBar extends React.Component {
-    state = {
-    } 
-    
-    render() {
-             
+export default function Navbar () {
+   const { user, login, logout } = useContext(AuthContext)          
         
     return ( 
         <div className={styles.mainnavbar}>
@@ -19,25 +17,17 @@ class NavBar extends React.Component {
             </div>
         <nav className= {styles.navbar}>
             <Link href="/dashboard">
-                 {this.state.user ? <a className={styles.link}>Dashboard</a>: ""}
+                <a className={styles.link}>Dashboard</a>
                 </Link>
             <Link href="/about">
                 <a className={styles.link}>About</a>
                 </Link>
-            <Link href="/login">
-                 {this.state.user ?  "" : <a className={styles.link}>Login</a>}
-                </Link>
-                <Link href="/signup">
-                {this.state.user ? "" : <a className={styles.link}>Register</a>}
-                </Link>
+                <a className={styles.link} onClick={login}>Login/Register</a>
             <Link href="/contact">
                 <a className={styles.link}>Contact</a>
                 </Link>
-            {this.state.user && <a className={styles.link}>Logout</a> }
+            <a className={styles.link} onClick={logout}>Logout</a>
         </nav>
         </div>
     );
 }
-}
-
-export default NavBar;

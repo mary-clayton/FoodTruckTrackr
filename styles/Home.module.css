@@ -64,3 +64,12 @@
   width: 150%;
   height: 10%;
 }
+
+.aboutheader {
+  background-image: url(../public/aboutheader.png);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+}

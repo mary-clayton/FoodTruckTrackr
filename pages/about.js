@@ -1,13 +1,12 @@
 import styles from '../styles/Home.module.css';
-import Image from 'next/image';
-import abouthead from '../public/aboutheader.png';
+import "../styles/Home.module.css"
 const About = () => {
     return ( 
         <div>
-            <Image src={abouthead} alt="about header"/>
+            <div className ={styles.aboutheader}></div>
             <div className={styles.mission}>
                 <h1 className={styles.headmission}>Our Mission</h1>
-                <p className={styles.para1}></p>
+                <p className={styles.para1}>This is a passion project designed by me and coded by me.</p>
             </div>
         </div>
      );

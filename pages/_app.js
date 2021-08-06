@@ -1,14 +1,14 @@
 import '../styles/globals.css'
 import Navbar from '../comps/navbar'
-import { useRouter } from 'next/router'
+import {AuthContextProvider} from '../stores/authContext'
 
-function App({user, Component}) {
+function App({Component, pageProps}) {
  
     return (
-    <div>
+    <AuthContextProvider>
       <Navbar  />
-      <Component />
-    </div>
+      <Component {...pageProps} />
+      </AuthContextProvider>
     )
   }
 
