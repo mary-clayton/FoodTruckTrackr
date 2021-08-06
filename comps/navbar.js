@@ -17,16 +17,16 @@ export default function Navbar () {
             </div>
         <nav className= {styles.navbar}>
             <Link href="/dashboard">
-                <a className={styles.link}>Dashboard</a>
+                { user ? <a className={styles.link}>Dashboard</a> : ""}
                 </Link>
             <Link href="/about">
                 <a className={styles.link}>About</a>
                 </Link>
-                <a className={styles.link} onClick={login}>Login/Register</a>
+                {user ? "": <a className={styles.link} onClick={login}>Login/Register</a>} 
             <Link href="/contact">
                 <a className={styles.link}>Contact</a>
                 </Link>
-            <a className={styles.link} onClick={logout}>Logout</a>
+            {user ? <a className={styles.link} onClick={logout}>Logout</a>: ""}
         </nav>
         </div>
     );
