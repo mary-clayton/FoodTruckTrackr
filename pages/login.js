@@ -1,45 +1,44 @@
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import initFirebase from './api/config';
-import { setUserCookie } from './api/userCookie';
-import { mapUserData } from './api/useUser';
-import Navbar from '../comps/navbar'
+import React from 'react'
+import Firebase from 'Firebase'
 
-initFirebase();
-const firebaseAuthConfig = ({ signInSuccessUrl }) => ({
-  signInFlow: 'popup',
-  signInOptions: [
-    {
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      requireDisplayName: true
-    },
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-  ],
-  tosUrl: '#Terms', 
-  privacyPolicyUrl: '#Privacy',
-  signInSuccessUrl,
-  credentialHelper: 'none',
-  callbacks: {
-    signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
-      const userData = await mapUserData(user);
-      setUserCookie(userData);
-    }
+class Login extends React.Component {
+  state = {
+    email: '',
+    password: ''
   }
-});
 
-const FirebaseAuth = () => {
-  const signInSuccessUrl = "/dashboard"
-  return (
+  render() {
+    const loginUser = () => {
+      Firebase.auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(this.props.setIsLoggedIn(true))
+      .then(this.props.router.push('/dashboard'))
+      .catch(error => console.log(error))
+    }
+  
+  return ( 
     <div>
-      <Navbar/>
-      <StyledFirebaseAuth
-        uiConfig={firebaseAuthConfig({ signInSuccessUrl })}
-        firebaseAuth={firebase.auth()}
-        signInSuccessUrl={signInSuccessUrl}
-      />
-    </div>
-  );
-};
+      <div>
+          <input
+          type="email"
+          value={this.state.email}
+          onChange= {e => this.setState({ email: e.target.value })}
+          placeholder='Email'
+          autoCapitalize='none'
+          />
+          <input
+          type="password"
+          value={this.state.password}
+          onChange= {e => this.setState({ password: e.target.value })}
+          placeholder='Password'
+          secureTextEntry={true}
+          />
+          <button onClick={loginUser}>Login</button>
+          <p>Don't have an account yet? <a href="">Sign Up</a></p>
+      </div>
+      </div>
+   );
+  }
+}
 
-export default FirebaseAuth;
+export default Login;

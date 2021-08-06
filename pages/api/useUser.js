@@ -1,67 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
 import initFirebase from './config';
-import {
-  removeUserCookie,
-  setUserCookie,
-  getUserFromCookie
-} from './userCookie';
 
 initFirebase();
 
-export const mapUserData = async user => {
-  const { uid, email } = user;
-  const token = await user.getIdToken(true);
-  return {
-    id: uid,
-    email,
-    token
-  };
-};
+firebase.auth().onAuthStateChanged(function(user)
+    {if (user !== null) {
+      // User is signed in.
+      var uid = user.uid
+      var displayName = user.displayName;
+      var email = user.email;
+      var photoURL = user.photoURL;
+      User.getToken().then(function(accessToken) {
 
-  
-const useUser = () => {
-  const [user, setUser] = useState();
-  const router = useRouter();
+          console.debug('user', user);
+          document.getElementById('sign-in-status').textContent = 'Signed in';
+          document.getElementById('uid').textContent = JSON.stringify(uid)
+          document.getElementById('name').textContent = JSON.stringify(displayName)
+          document.getElementById('email').textContent = JSON.stringify(email)
+          document.getElementById('account-details').textContent = JSON.stringify({
+              uid: uid,
+              displayName: displayName,
+              email: email,
+              photoURL: photoURL
 
-  const logout = async () => {
-    return firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        router.push('/');
-      })
-      .catch(e => {
-        console.error(e);
-      });
-  };
-
-  useEffect(() => {
-    const cancelAuthListener = firebase
-      .auth()
-      .onIdTokenChanged(async userToken => {
-        if (userToken) {
-          const userData = await mapUserData(userToken);
-          setUserCookie(userData);
-          setUser(userData);
-        } else {
-          removeUserCookie();
-          setUser();
-        }
+          });
       });
 
-    const userFromCookie = getUserFromCookie();
-    if (!userFromCookie) {
-      return;
-    }
-    setUser(userFromCookie);
-    return () => cancelAuthListener;
-  }, []);
-
-  return { user, logout };
-};
-
-export { useUser };
+    } else {
+        console.log('not logged in');
+    }   
+    })

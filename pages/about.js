@@ -1,11 +1,9 @@
-import Navbar from '../comps/navbar';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import abouthead from '../public/aboutheader.png';
 const About = () => {
     return ( 
         <div>
-            <Navbar/>
             <Image src={abouthead} alt="about header"/>
             <div className={styles.mission}>
                 <h1 className={styles.headmission}>Our Mission</h1>

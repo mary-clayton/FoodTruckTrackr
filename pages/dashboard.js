@@ -1,17 +1,17 @@
-// import { useUser } from "./api/useUser";
 import db from '../styles/Dashboard.module.css'
-import Navbar2 from '../comps/navbar2'
+import firebase from 'firebase'
+import React from 'react';
+class Dashboard extends React.Component {
 
-const Dashboard = () => {
+render() {
 
 return (
   <div>
-    <Navbar2/>
-    <div>Private</div>
+    <h2>Welcome {this.props.user.displayName} </h2>
       
     
   </div>
 )
 }
- 
+} 
 export default Dashboard;
